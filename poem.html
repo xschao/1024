@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>仍是少年</title>
+</head>
+<style type="text/css">
+    body {
+        margin: 0;
+        padding: 0;
+        background: #ffe;
+        color: #231F20;
+        overflow: auto
+    }
+    .poem {
+        position: absolute;
+        top: 2%;
+        left: 20%;
+        line-height: 80px;
+        color: #FF00FF;
+        font-size: 24px;
+        font-weight: 800;;
+        text-shadow: 1px 0px #009807, 1px 1px #006705, 2px 1px #009807, 1px 2px #006705, 2px 1px #009807, 2px 2px #006705, 3px 1px #009807;
+    }
+
+    #clock-box {
+        position: absolute;
+        left: 60px;
+        top: 550px;
+        font-size: 28px;
+        display: none;
+    }
+
+    #clock-box a {
+        font-size: 28px;
+        text-decoration: none;
+    }
+</style>
+<body>
+<div class="poem">
+  <div id="wrap">
+    <div id="text">
+      <div id="code">
+        <span class="say"></span><br>
+        <span class="say">去年今日此门中</span><br>
+        <span class="say">人面桃花相映红</span><br>
+        <span class="say">人面不知何处去</span><br>
+        <span class="say">桃花依旧笑春风</span><br>
+      </div>
+    </div>
+    <div id="clock-box">
+      <a href="https://blog.csdn.net/sinat_41803693" target="_blank">崔护</a> 题都城南庄
+     <!-- <div id="clock"></div>-->
+    </div>
+    <canvas id="canvas" width="1100" height="680"></canvas>
+  </div>
+</div>
+<script src="js/functions.js"></script>
+<script type="text/javascript" src="./js/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="./js/jscex.min.js"></script>
+<script type="text/javascript" src="./js/jscex-parser.js"></script>
+<script type="text/javascript" src="./js/jscex-jit.js"></script>
+<script type="text/javascript" src="./js/jscex-builderbase.min.js"></script>
+<script type="text/javascript" src="./js/jscex-async.min.js"></script>
+<script type="text/javascript" src="./js/jscex-async-powerpack.min.js"></script>
+<script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
+<script type="text/javascript">
+    var textAnimate = eval(Jscex.compile("async", function () {
+        var together = new Date();
+        together.setFullYear(2021, 10, 19);
+        together.setHours(20);
+        together.setMinutes(20);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
+
+        $("#code").show().typewriter();
+        $("#clock-box").fadeIn(500);
+        while (true) {
+            timeElapse(together);
+            $await(Jscex.Async.sleep(1000));
+        }
+    }));
+
+    var runAsync = eval(Jscex.compile("async", function () {
+        textAnimate().start();
+    }));
+
+    runAsync().start();
+</script>
+</body>
+</html>

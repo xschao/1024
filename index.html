@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="css/page-style.css">
+</head>
+<style type="text/css">
+    .tishiContent {
+        border: 1px solid #0d85d1;
+        font-size: 18px;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-style: normal;
+        color: white;
+    }
+    *,body{
+        background-color:pink;
+    }
+</style>
+<body>
+  <a class="link" href="page.html">
+    <div align="center" class="tishi">
+      <span class="tishiContent">轻触屏幕继续</span>
+    </div>
+  </a>
+  <div class="book preserve-3d">
+
+    <div class="book-page-box">
+      <div class="book-page">
+        <br>
+        <br>
+        <p>去年今日此门中</p>
+      </div>  
+    </div>
+
+    <div class="flip-animation-2 point">
+
+      <div class="book-page">
+        <br>
+        <br>
+        <p>人面桃花相映红</p>
+      </div>
+    </div>
+
+    <div class="flip-animation-3 point">
+      <div class="book-page">
+        <br>
+        <br>
+        <p>人面不知何处去</p>
+      </div>
+    </div>
+    <div class="flip-animation-4 point">
+      <div class="book-page">
+        <br>
+        <p>桃花依旧笑春风</p>
+      </div>
+    </div>
+    <div class="flip-animation-1 point">
+      <div class="book-page first-page">
+        <span style="background-color: pink" ><p>题都城南庄 <br>崔护</p></span>
+        <p>去年今日此门中</p>
+      </div>
+    </div>
+
+  </div>
+<script src="js/functions.js"></script>
+<script type="text/javascript">
+    var textAnimate = eval(Jscex.compile("async", function () {
+        var together = new Date();
+        together.setFullYear(2010, 5, 8);
+        together.setHours(20);
+        together.setMinutes(20);
+        together.setSeconds(0);
+        together.setMilliseconds(0);
+
+        $("#code").show().typewriter();
+        $("#clock-box").fadeIn(500);
+        while (true) {
+            timeElapse(together);
+            $await(Jscex.Async.sleep(1000));
+        }
+    }));
+
+    var runAsync = eval(Jscex.compile("async", function () {
+        textAnimate().start();
+    }));
+
+    runAsync().start();
+</script>
+</body>
+</html>
+
